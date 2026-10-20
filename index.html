@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="http://localhost:3000/lc.js" data-site-id="lc_c3a93a86cb2b0eac1a08bef0" async></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Studio | Contact Us</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8f9fc;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 8%;
+      background: white;
+      border-bottom: 1px solid #e9edf5;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #4567f5;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #596174;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .btn {
+      background: #4567f5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 21px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #304fe0;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 75px 8% 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-content {
+      max-width: 610px;
+    }
+
+    .eyebrow {
+      color: #4567f5;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin: 18px 0;
+    }
+
+    h1 span {
+      color: #4567f5;
+    }
+
+    .hero p {
+      color: #697386;
+      max-width: 470px;
+      margin-bottom: 25px;
+    }
+
+    .hero-art {
+      width: 270px;
+      height: 270px;
+      flex-shrink: 0;
+      border-radius: 40% 60% 55% 45%;
+      background: linear-gradient(135deg, #dce5ff, #4567f5);
+      position: relative;
+      display: grid;
+      place-items: center;
+      transform: rotate(-5deg);
+    }
+
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border: 2px solid white;
+      border-radius: 50%;
+    }
+
+    .hero-art span {
+      font-size: 75px;
+      color: white;
+      transform: rotate(5deg);
+    }
+
+    .contact-section {
+      padding: 35px 8% 90px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-size: 36px;
+      letter-spacing: -1px;
+      margin: 10px 0;
+    }
+
+    .section-heading p {
+      color: #697386;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 30px;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .form-card,
+    .info-card {
+      background: white;
+      border: 1px solid #e8ebf2;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 12px 35px rgba(30, 45, 90, 0.04);
+    }
+
+    .form-card h3,
+    .info-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: #778094;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #dfe4ee;
+      background: #fcfcfe;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: #4567f5;
+      box-shadow: 0 0 0 3px rgba(69, 103, 245, 0.1);
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+    }
+
+    .info-card {
+      background: #172033;
+      color: white;
+      align-self: start;
+    }
+
+    .info-card .muted {
+      color: #b8c0d0;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin: 27px 0;
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      background: #2a3650;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .info-item small {
+      color: #aeb9cc;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .info-item p {
+      overflow-wrap: anywhere;
+    }
+
+    .footer {
+      padding: 25px;
+      text-align: center;
+      color: #7b8495;
+      border-top: 1px solid #e9edf5;
+      font-size: 13px;
+    }
+
+    /* Popup */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 19, 38, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 440px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: white;
+      padding: 32px;
+      border-radius: 18px;
+      position: relative;
+      animation: popupIn 0.25s ease;
+    }
+
+    @keyframes popupIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 17px;
+      border: none;
+      background: #f0f2f7;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 22px;
+      color: #4b5568;
+    }
+
+    .modal-card h2 {
+      font-size: 27px;
+      margin: 8px 0;
+      padding-right: 15px;
+    }
+
+    .modal-card .muted {
+      margin-bottom: 22px;
+    }
+
+    .success {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      color: #166534;
+      background: #dcfce7;
+      font-size: 14px;
+    }
+
+    .success.show {
+      display: block;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    @media (max-width: 760px) {
+      .navbar {
+        padding: 18px 5%;
+      }
+
+      .nav-links a {
+        display: none;
+      }
+
+      .hero {
+        padding: 55px 6%;
+      }
+
+      .hero-art {
+        display: none;
+      }
+
+      .contact-section {
+        padding: 30px 5% 60px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card,
+      .info-card {
+        padding: 23px;
+      }
+
+      .section-heading h2 {
+        font-size: 30px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .navbar .btn {
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .modal-card {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">NOVA<span>.</span>STUDIO</div>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#contact">Contact</a>
+      <button class="btn" onclick="openPopup()">Get a Quote ↗</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="eyebrow">LET'S CONNECT</div>
+
+      <h1>Let's build<br />something <span>great.</span></h1>
+
+      <p>
+        Have a project in mind? We'd love to hear about it.
+        Tell us what you're looking for and let's make it happen.
+      </p>
+
+      <button class="btn" onclick="openPopup()">
+        Get a Free Consultation ↗
+      </button>
+    </div>
+
+    <div class="hero-art">
+      <span>✳</span>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-section" id="contact">
+    <div class="section-heading">
+      <div class="eyebrow">GET IN TOUCH</div>
+      <h2>We'd love to hear from you</h2>
+      <p>Fill out the form below and tell us about your project.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="form-card">
+        <h3>Send us a message</h3>
+        <p class="muted">Fields marked with * are required.</p>
+
+        <form action="http://localhost:3000/api/f/lc_c3a93a86cb2b0eac1a08bef0" method="POST" id="contactForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="contactName">Full Name *</label>
+              <input id="contactName" name="name" type="text" placeholder="Your name" required />
+            </div>
+
+            <div class="field">
+              <label for="contactEmail">Email Address *</label>
+              <input id="contactEmail" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="contactPhone">Phone Number</label>
+            <input id="contactPhone" name="phone" type="tel" placeholder="+91 98765 43210" />
+          </div>
+
+          <div class="field">
+            <label for="contactMessage">Your Message *</label>
+            <textarea id="contactMessage" name="message" placeholder="Tell us about your project..."
+              required></textarea>
+          </div>
+
+          <button class="btn submit-btn" type="submit">
+            Send Message →
+          </button>
+
+          <div class="success" id="contactSuccess" role="status">
+            ✓ Your demo form was submitted successfully!
+          </div>
+        </form>
+      </div>
+
+      <!-- Contact Information -->
+      <aside class="info-card">
+        <h3>Contact information</h3>
+        <p class="muted">Have questions? Reach out to us directly.</p>
+
+        <div class="info-item">
+          <div class="info-icon">✉</div>
+          <div>
+            <small>Email us</small>
+            <p>hello@novastudio.com</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">☎</div>
+          <div>
+            <small>Call us</small>
+            <p>+91 98765 43210</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">⌖</div>
+          <div>
+            <small>Visit us</small>
+            <p>Vellore, Tamil Nadu, India</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Nova Studio. Demo website for testing contact forms.
+  </footer>
+
+  <!-- Popup Form -->
+  <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+
+    <div class="modal-card">
+      <button class="close-btn" type="button" onclick="closePopup()" aria-label="Close popup">×</button>
+
+      <div class="eyebrow">LET'S TALK</div>
+      <h2 id="popupTitle">Get a Free Consultation</h2>
+      <p class="muted">
+        Share your details and we'll be in touch.
+      </p>
+
+      <form id="popupForm">
+        <div class="field">
+          <label for="popupName">Full Name *</label>
+          <input id="popupName" name="name" type="text" placeholder="Enter your name" required />
+        </div>
+
+        <div class="field">
+          <label for="popupEmail">Email Address *</label>
+          <input id="popupEmail" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field">
+          <label for="popupPhone">Phone Number *</label>
+          <input id="popupPhone" name="phone" type="tel" placeholder="+91 98765 43210" required />
+        </div>
+
+        <button class="btn submit-btn" type="submit">
+          Request a Call →
+        </button>
+
+        <div class="success" id="popupSuccess" role="status">
+          ✓ Your demo request was submitted successfully!
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("contactModal");
+
+    function openPopup() {
+      modal.classList.add("active");
+      document.body.classList.add("modal-open");
+
+      setTimeout(() => {
+        document.getElementById("popupName").focus();
+      }, 100);
+    }
+
+    function closePopup() {
+      modal.classList.remove("active");
+      document.body.classList.remove("modal-open");
+    }
+
+    // Close popup when clicking outside the form
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        closePopup();
+      }
+    });
+
+    // Close popup with Escape key
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closePopup();
+      }
+    });
+
+    // Demo contact form submission
+    document.getElementById("contactForm").addEventListener(
+      "submit", function (event) {
+        event.preventDefault();
+
+        const success = document.getElementById("contactSuccess");
+        success.classList.add("show");
+        this.reset();
+      }
+    );
+
+    // Demo popup form submission
+    document.getElementById("popupForm").addEventListener(
+      "submit", function (event) {
+        event.preventDefault();
+
+        const success = document.getElementById("popupSuccess");
+        success.classList.add("show");
+        this.reset();
+      }
+    );
+  </script>
+
+</body>
+
+</html>
