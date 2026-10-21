@@ -610,14 +610,16 @@
 
     // Demo contact form submission
     document.getElementById("contactForm").addEventListener(
-      "submit", function (event) {
-        event.preventDefault();
-
-        const success = document.getElementById("contactSuccess");
-        success.classList.add("show");
-        this.reset();
-      }
-    );
+     "submit",
+     function () {
+       const button = this.querySelector('button[type="submit"]');
+   
+       if (button) {
+         button.disabled = true;
+         button.textContent = "Sending...";
+       }
+     }
+   );
 
     // Demo popup form submission
     document.getElementById("popupForm").addEventListener(
