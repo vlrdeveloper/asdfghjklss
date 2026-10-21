@@ -466,7 +466,7 @@
         <h3>Send us a message</h3>
         <p class="muted">Fields marked with * are required.</p>
 
-        <form id="contactForm">
+        <form id="contactForm" action="https://leadscollectors.vercel.app/api/f/lc_bb860e8edb1c56267307a630" method="POST" >
           <div class="form-row">
             <div class="field">
               <label for="contactName">Full Name *</label>
@@ -489,6 +489,7 @@
             <textarea id="contactMessage" name="message" placeholder="Tell us about your project..."
               required></textarea>
           </div>
+          <input type="hidden" name="_redirect" value="https://asdfghjklss.vercel.app/thanks">
 
           <button class="btn submit-btn" type="submit">
             Send Message →
